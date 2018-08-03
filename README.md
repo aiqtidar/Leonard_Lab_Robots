@@ -27,6 +27,17 @@ The three spotlights are connected to the Roscore computer via DMX. Each spotlig
 
 The spotlights are connected in series, and can be lighted using python code. It is run via the commandline; try ```python /Lights_and_Color/Light_test3.py``` The file ```Light_test3.py``` is also a good example of how to operate the lights.
 
+## Setting up the Neopixels via Arduino
+Download the Adafruit_Neopixel library onto your Arduino platform. Go to ``` Example >> Adafruit NeoPixel >> simple ``` This should suffice for firing up the NeoPixels to a constant lighting. There are some useful notes:
+- The number of pixels on each strip is 150
+- The NexPixels can be connected in series.
+- The Arduino is only required for powering the neopixels up.
+- The data is read from pin ~6.
+- Each NeoPixel requires its own power supply (of course).
+
+## Running the Code for Kobukis
+There were a total of 22 Trials. Each trial consists of python code, and Trials 21 and 22 are both final versions.
+
 
 
 
