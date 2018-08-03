@@ -7,6 +7,8 @@ There are two separate hardware systems at play, connected via a ROS platform:
  
 The Vicon system is basically a set of cameras which records the positions and orientation of robots with respect to a well defined coordinate system. The Kobukis are vacuum-cleaner-like robots; they can move with a certain linear and angular speed. The Robot Operating System (ROS) binds the Vicon and the Kobukis together. The ROS-core reads Vicon data, and sends (publishes) commands to the kobukis.
 
+NOTE: You will need to replace all spaces with underscores in file names, e.g, "Light_and_Color" instead of "Light and Color"
+
 ## Understanding ROS
 Understanding how ROS works is essential to understanding the system. I would recommend going through all the ROS tutorials thoroughly: https://docs.google.com/document/d/1FFweM-iAUHEGsGNKYE8pN4EZRdZCeedRtgar93bCYYc/edit?usp=sharing
 
