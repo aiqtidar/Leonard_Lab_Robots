@@ -5,7 +5,7 @@ There are two separate hardware systems at play, connected via a ROS platform:
  - Vicon
  - Kobukis
  
-The Vicon system is basically a set of cameras which records the positions and orientation of robots with respect to a well defined coordinate system. The Kobukis are vacuum-cleaner-like robots; they can move with a certain linear and angular speed. The Robot Operating System (ROS) binds the Vicon and the Kobukis togethe. The ROS-core reads Vicon data, and sends (publishes) commands to the kobukis.
+The Vicon system is basically a set of cameras which records the positions and orientation of robots with respect to a well defined coordinate system. The Kobukis are vacuum-cleaner-like robots; they can move with a certain linear and angular speed. The Robot Operating System (ROS) binds the Vicon and the Kobukis together. The ROS-core reads Vicon data, and sends (publishes) commands to the kobukis.
 
 ## Understanding ROS
 Understanding how ROS works is essential to understanding the system. I would recommend going through all the ROS tutorials thoroughly: https://docs.google.com/document/d/1FFweM-iAUHEGsGNKYE8pN4EZRdZCeedRtgar93bCYYc/edit?usp=sharing
@@ -35,9 +35,17 @@ Download the Adafruit_Neopixel library onto your Arduino platform. Go to ``` Exa
 - The data is read from pin ~6.
 - Each NeoPixel requires its own power supply (of course).
 
-## Running the Code for Kobukis
-There were a total of 22 Trials. Each trial consists of python code, and Trials 21 and 22 are both final versions.
+## Understanding and Running the Code for Kobukis
+There were a total of 22 Trials. Each trial consists of python code, and Trials 21 and 22 are both final versions. Each Trial is well documented by comments. Some general notes:
 
+- The system is modeled as a finite-state machine, with booleans controlling which states are permitted and which are not.
+- There may be unused variables, most of which may become used once the system is extended to involve all components of the decision making dynamics.
+- The Beta Values are obtained from light intensities being read by the kobukis.
+- The U value is determined by the x-coordinate of the Vicon object "HandLeft"
+- Trials 21 and 22 on differ in their color reading scheme: Trial 22 uses continuous Beta values while Trial 21 does not.
+- The trials must, of course, be run under the kobuki_control_pl1 package ```rosrun kobuki_control_pl1 Trial_22.py```
+### Limitations
+The primary limitation is in obtaining Beta Values from light intensities. The idea was to have a uniform field of light, but this was not possible via spotlights. Trial 21 does include a function which attempts to normalize the light field, but the function fails in darknesss. 
 
 
 
